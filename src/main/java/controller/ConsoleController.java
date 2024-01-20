@@ -30,6 +30,7 @@ public class ConsoleController {
                 if (Objects.equals(Commands.EXIT, result)) break;
                 view.printResult(result);
             } catch (Exception e) {
+                e.printStackTrace();
                 view.printErrorMessage(e);
             }
         }
@@ -43,7 +44,9 @@ public class ConsoleController {
                 yield machine.toString();
             }
             case Commands.EXECUTE -> {
-                yield Commands.EXECUTE;
+                machine.execute();
+
+                yield machine.toString();
             }
             case Commands.RESET -> {
                 yield Commands.RESET;

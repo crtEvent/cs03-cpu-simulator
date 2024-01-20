@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 import model.Machine;
 import model.cpu.ArithmeticLogicUnit;
+import model.cpu.ControlUnit;
 import model.cpu.InstructionRegister;
 import model.cpu.ProgramCounter;
 import model.cpu.RegisterSet;
@@ -22,6 +23,7 @@ public class ConsoleApplication {
 
         ConsoleController controller = new ConsoleController(
             new Machine(
+                new ControlUnit(),
                 new ArithmeticLogicUnit(),
                 new ProgramCounter(),
                 new InstructionRegister(),
