@@ -50,6 +50,9 @@ public class ConsoleController {
             case Commands.HELP -> {
                 yield HELP_MESSAGE;
             }
+            case Commands.EXIT -> {
+                yield Commands.EXIT;
+            }
             default -> throw new IllegalArgumentException(COMMAND_ERROR_MESSAGE.apply(command));
         };
     }

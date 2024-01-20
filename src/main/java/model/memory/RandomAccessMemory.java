@@ -4,9 +4,9 @@ public class RandomAccessMemory {
     private final Integer[] values;
     private final Integer[] instructions;
 
-    public RandomAccessMemory(int valueMemorySize, int instructionMemorySize) {
+    public RandomAccessMemory(int valueMemorySize, Integer[] instructions) {
         this.values = new Integer[valueMemorySize];
-        this.instructions = new Integer[instructionMemorySize];
+        this.instructions = instructions;
     }
 
     public int getValue(int address) {
@@ -25,12 +25,6 @@ public class RandomAccessMemory {
         validValueAddress(address);
 
         values[address] = value;
-    }
-
-    public void setInstruction(int address, int instruction) {
-        validInstructionAddress(address);
-
-        instructions[address] = instruction;
     }
 
     private void validValueAddress(int address) {
