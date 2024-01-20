@@ -4,7 +4,7 @@ public class InstructionRegister {
 
     private Integer instruction = null;
 
-    public int getInstruction() {
+    public Integer getInstruction() {
         return instruction;
     }
 

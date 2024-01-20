@@ -21,6 +21,8 @@ public class ConsoleController {
     }
 
     public void execute() {
+        view.printResult(machine.toString());
+
         while (true) {
             try {
                 String command = view.inputCommand();
@@ -36,7 +38,9 @@ public class ConsoleController {
     private String generateResult(String command) {
         return switch(command) {
             case Commands.FETCH -> {
-                yield Commands.FETCH;
+                machine.fetch();
+
+                yield machine.toString();
             }
             case Commands.EXECUTE -> {
                 yield Commands.EXECUTE;

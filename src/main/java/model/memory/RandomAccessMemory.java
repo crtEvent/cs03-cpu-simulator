@@ -29,11 +29,11 @@ public class RandomAccessMemory {
 
     private void validValueAddress(int address) {
         if (address < 0 || address >= values.length)
-            throw new IllegalArgumentException("잘못된 메모리 주소입니다.");
+            throw new IllegalArgumentException(String.format("접근 가능한 메모리 주소 범위를 벗어났습니다. (address: %d)", address));
     }
 
     private void validInstructionAddress(int address) {
         if (address < 0 || address >= instructions.length)
-            throw new IllegalArgumentException("잘못된 메모리 주소입니다.");
+            throw new IllegalArgumentException(String.format("접근 가능한 메모리 주소 범위를 벗어났습니다. (address: %d)", address));
     }
 }

@@ -28,7 +28,10 @@ public class Machine {
      * 명령어를 읽어온 후 Program Counter를 1 증가시킨다.
      */
     public void fetch() {
-
+        int count = PC.getCount();
+        int instruction = RAM.getInstruction(count);
+        IR.setInstruction(instruction);
+        PC.countUp();
     }
 
     /**
@@ -57,17 +60,29 @@ public class Machine {
 
     @Override
     public String toString() {
+        String ir1, ir2;
+
+        ir1 = (IR.getInstruction() != null)
+            ? String.format("%8s", Integer.toBinaryString((IR.getInstruction() >>> 8) & 0xFF)).replace(' ', '0')
+            : "        ";
+        ir2 = (IR.getInstruction() != null)
+            ? String.format("%8s", Integer.toBinaryString(IR.getInstruction() & 0xFF)).replace(' ', '0')
+            : "        ";
+
         return String.format(
             "+-CU-------+     +-PC--+ +-IR-------+%n" +
-            "|          |     |     | |          |%n" +
-            "|          |     +-----+ |          |%n" +
+            "|          |     | %3d | | %8s |%n" +
+            "|          |     +-----+ | %8s |%n" +
             "+----------+     +-R1--+ +----------+%n" +
             "                 |     |%n" +
             "+ALU+  +---+     +-R2--+-R3--+-R4--+%n" +
             "\\    \\/    /     |     |     |     |%n" +
             " \\        /      +-R5--+-R6--+-R7--+%n" +
             "  \\      /       |     |     |     |%n" +
-            "   +----+        +-----+-----+-----+%n"
+            "   +----+        +-----+-----+-----+%n",
+            PC.getCount(),
+            ir1,
+            ir2
         );
     }
 }
