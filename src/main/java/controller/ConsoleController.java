@@ -30,7 +30,6 @@ public class ConsoleController {
                 if (Objects.equals(Commands.EXIT, result)) break;
                 view.printResult(result);
             } catch (Exception e) {
-                e.printStackTrace();
                 view.printErrorMessage(e);
             }
         }
@@ -54,7 +53,7 @@ public class ConsoleController {
                 yield machine.toString();
             }
             case Commands.DUMP -> {
-                yield Commands.DUMP;
+                yield machine.toString();
             }
             case Commands.HELP -> {
                 yield HELP_MESSAGE;
