@@ -58,6 +58,30 @@ public class Machine {
                 int value = resisterSet.get(operands[0]);
                 RAM.setValue(operands[1] + operands[2], value);
             }
+            case OpCode.OR -> {
+                Integer[] operands = controlSignal.getOperands();
+                ALU.set(resisterSet.get(operands[1]), resisterSet.get(operands[2]));
+                int result = ALU.or();
+                resisterSet.set(operands[0], result);
+            }
+            case OpCode.AND -> {
+                Integer[] operands = controlSignal.getOperands();
+                ALU.set(resisterSet.get(operands[1]), resisterSet.get(operands[2]));
+                int result = ALU.and();
+                resisterSet.set(operands[0], result);
+            }
+            case OpCode.ADD -> {
+                Integer[] operands = controlSignal.getOperands();
+                ALU.set(resisterSet.get(operands[1]), resisterSet.get(operands[2]));
+                int result = ALU.add();
+                resisterSet.set(operands[0], result);
+            }
+            case OpCode.SUB -> {
+                Integer[] operands = controlSignal.getOperands();
+                ALU.set(resisterSet.get(operands[1]), resisterSet.get(operands[2]));
+                int result = ALU.sub();
+                resisterSet.set(operands[0], result);
+            }
             case OpCode.MOV -> {
                 Integer[] operands = controlSignal.getOperands();
                 resisterSet.set(operands[0], operands[1]);
