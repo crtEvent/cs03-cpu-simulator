@@ -28,4 +28,9 @@ public class ArithmeticLogicUnit {
     public Integer sub() {
         return operand1 - operand2;
     };
+
+    public void clear() {
+        this.operand1 = null;
+        this.operand2 = null;
+    }
 }

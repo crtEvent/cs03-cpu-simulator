@@ -49,7 +49,9 @@ public class ConsoleController {
                 yield machine.toString();
             }
             case Commands.RESET -> {
-                yield Commands.RESET;
+                machine.reset();
+
+                yield machine.toString();
             }
             case Commands.DUMP -> {
                 yield Commands.DUMP;

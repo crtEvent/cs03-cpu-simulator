@@ -96,7 +96,11 @@ public class Machine {
      * Resister와 Program Counter 값을 모두 초기화 한다.
      */
     public void reset() {
-
+        CU.clear();
+        ALU.clear();
+        PC.clear();
+        IR.clear();
+        resisterSet.clear();
     }
 
     /**
