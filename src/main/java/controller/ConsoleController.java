@@ -13,6 +13,10 @@ public class ConsoleController {
     private static final Function<String, String> COMMAND_ERROR_MESSAGE = (String command)
         -> String.format("'%s'는 잘못된 명령어 입니다.", command);
     private static final String HELP_MESSAGE = "[도움말]" + System.lineSeparator()
+        + " - fetch: 현재 PC값에 해당하는 메모리에 있는 명령어를 IR에 저장한다. " + System.lineSeparator()
+        + " - execute: IR에 저장된 명령어를 CU가 해독하고, 명령을 수행한다." + System.lineSeparator()
+        + " - reset: 현제 레지스터의 값을 모두 초기화 한다" + System.lineSeparator()
+        + " - dump: 현재 레지스터의 상태를 보여준다." + System.lineSeparator()
         + " - exit: 프로그램 종료";
 
     public ConsoleController(Machine machine, ConsoleView view) {
